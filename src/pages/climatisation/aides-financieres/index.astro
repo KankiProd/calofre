@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroVariant from '../../../components/HeroVariant.astro';
+import CTABanner from '../../../components/CTABanner.astro';
+import FAQ from '../../../components/FAQ.astro';
+
+const seo = {
+  title: 'Aides Financières Climatisation 2025 — MaPrimeRénov\' | CALOFRÉ',
+  description: 'Découvrez les aides financières pour votre climatisation et pompe à chaleur : MaPrimeRénov\', CEE, TVA 5,5%. Artisan RGE obligatoire. CALOFRÉ vous accompagne.',
+};
+
+const breadcrumbs = [
+  { name: 'Accueil', url: 'https://calofre.fr/' },
+  { name: 'Climatisation', url: 'https://calofre.fr/climatisation/' },
+  { name: 'Aides financières', url: 'https://calofre.fr/climatisation/aides-financieres/' },
+];
+
+const faqs = [
+  { question: 'Faut-il obligatoirement un artisan RGE pour les aides ?', answer: 'Oui, c\'est une condition sine qua non. Sans artisan certifié RGE, vous ne pouvez prétendre ni à MaPrimeRénov\', ni aux CEE, ni à la TVA à 5,5%. CALOFRÉ est certifié RGE QualiPAC.' },
+  { question: 'Peut-on cumuler MaPrimeRénov\' et les CEE ?', answer: 'Oui, MaPrimeRénov\' et les CEE sont cumulables. Vous pouvez également cumuler avec la TVA à 5,5% et certaines aides locales. Nous vous accompagnons dans le montage de tous vos dossiers.' },
+  { question: 'Quels travaux sont éligibles ?', answer: 'Les travaux éligibles concernent principalement l\'installation de pompes à chaleur (air-eau, air-air réversible), le remplacement de chaudières anciennes, et l\'isolation. Nous vérifions l\'éligibilité de votre projet lors du devis.' },
+];
+---
+
+<BaseLayout seo={seo}>
+  <HeroVariant title="Aides financières pour vos travaux" subtitle="MaPrimeRénov', CEE, TVA 5,5% : profitez de notre certification RGE pour réduire le coût de vos travaux." breadcrumbs={breadcrumbs} />
+
+  <section class="py-16 md:py-24">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <div class="max-w-prose mx-auto mb-16">
+        <p class="text-lg text-slate-700 leading-relaxed">
+          En tant qu'artisan certifié <strong>RGE QualiPAC</strong>, CALOFRÉ vous permet de bénéficier de l'ensemble des aides financières de l'État pour vos travaux de rénovation énergétique. Nous vous accompagnons dans le montage de vos dossiers pour maximiser votre prise en charge.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div class="bg-white border border-slate-100 rounded-2xl p-8 shadow-soft">
+          <div class="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">MaPrimeRénov'</h3>
+          <p class="text-slate-600 mb-4">Aide de l'État pour les travaux de rénovation énergétique. Montant variable selon vos revenus et le type de travaux.</p>
+          <p class="text-2xl font-bold text-primary-700">Jusqu'à 11 000 €</p>
+          <p class="text-sm text-slate-500">pour une PAC air-eau</p>
+        </div>
+
+        <div class="bg-white border border-slate-100 rounded-2xl p-8 shadow-soft">
+          <div class="w-12 h-12 bg-accent-50 rounded-xl flex items-center justify-center text-accent-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">CEE (Primes énergie)</h3>
+          <p class="text-slate-600 mb-4">Certificats d'Économies d'Énergie versés par les fournisseurs d'énergie. Cumulables avec MaPrimeRénov'.</p>
+          <p class="text-2xl font-bold text-accent-600">Jusqu'à 5 000 €</p>
+          <p class="text-sm text-slate-500">selon le type de travaux</p>
+        </div>
+
+        <div class="bg-white border border-slate-100 rounded-2xl p-8 shadow-soft">
+          <div class="w-12 h-12 bg-trust-50 rounded-xl flex items-center justify-center text-trust-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">TVA à 5,5%</h3>
+          <p class="text-slate-600 mb-4">TVA réduite sur les travaux de rénovation énergétique pour les logements de plus de 2 ans.</p>
+          <p class="text-2xl font-bold text-trust-600">5,5% au lieu de 20%</p>
+          <p class="text-sm text-slate-500">sur la main d'œuvre et le matériel</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Simulez vos aides gratuitement" subtitle="Nous calculons le montant de vos aides lors de l'établissement du devis. Sans engagement." />
+
+  <FAQ items={faqs} />
+</BaseLayout>

@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroVariant from '../../../components/HeroVariant.astro';
+import CTABanner from '../../../components/CTABanner.astro';
+import { getCollection } from 'astro:content';
+
+const seo = {
+  title: 'Marques Climatisation — Daikin, Mitsubishi, Atlantic | CALOFRÉ',
+  description: 'Découvrez les marques de climatisation installées par CALOFRÉ à Colomiers : Daikin, Mitsubishi, Atlantic, LG, Toshiba, Panasonic, Airwell. Installateur certifié RGE.',
+};
+
+const breadcrumbs = [
+  { name: 'Accueil', url: 'https://calofre.fr/' },
+  { name: 'Climatisation', url: 'https://calofre.fr/climatisation/' },
+  { name: 'Marques', url: 'https://calofre.fr/climatisation/marques/' },
+];
+
+const marques = await getCollection('marques');
+---
+
+<BaseLayout seo={seo}>
+  <HeroVariant title="Nos marques de climatisation" subtitle="Nous installons et entretenons les meilleures marques du marché. Chaque installation est réalisée par un technicien certifié RGE." breadcrumbs={breadcrumbs} />
+
+  <section class="py-16 md:py-24">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {marques.map((marque) => (
+          <a href={`/climatisation/marques/${marque.id}/`} class="group block bg-white border border-slate-100 rounded-2xl p-6 shadow-soft hover:shadow-card-hover transform hover:-translate-y-1 transition-all duration-200">
+            <div class="w-16 h-16 bg-slate-50 rounded-xl flex items-center justify-center mb-4">
+              <span class="text-2xl font-bold text-primary-700">{marque.data.name.charAt(0)}</span>
+            </div>
+            <h2 class="text-xl font-semibold text-slate-900 mb-2 group-hover:text-primary-700 transition-colors">{marque.data.name}</h2>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">{marque.data.description}</p>
+            <span class="inline-flex items-center gap-1.5 text-sm font-medium text-primary-600">
+              Voir les modèles
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Besoin d'un conseil sur le choix de marque ?" subtitle="Nos techniciens vous aident à choisir la marque la plus adaptée à votre logement et votre budget." />
+</BaseLayout>

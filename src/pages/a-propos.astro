@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroVariant from '../components/HeroVariant.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { company } from '../data/company';
+
+const seo = {
+  title: 'À propos de CALOFRÉ — Artisan RGE à Colomiers',
+  description: 'Découvrez CALOFRÉ, artisan plombier chauffagiste climatiseur certifié RGE QualiPAC à Colomiers. Fondé par Fouad Moussaoui en 2022. 4,9★ Google.',
+};
+
+const breadcrumbs = [
+  { name: 'Accueil', url: 'https://calofre.fr/' },
+  { name: 'À propos', url: 'https://calofre.fr/a-propos/' },
+];
+---
+
+<BaseLayout seo={seo}>
+  <HeroVariant title="À propos de CALOFRÉ" subtitle="Un artisan local, certifié et engagé pour votre confort." breadcrumbs={breadcrumbs} />
+
+  <section class="py-16 md:py-24">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <div class="max-w-prose mx-auto">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900 mb-6">Notre histoire</h2>
+        <p class="text-lg text-slate-700 leading-relaxed mb-4">
+          CALOFRÉ a été fondée en mai 2022 par <strong>Fouad Moussaoui</strong>, technicien CVC expérimenté, avec une vision claire : offrir aux habitants de Colomiers et de l'agglomération toulousaine un service de plomberie, chauffage et climatisation irréprochable.
+        </p>
+        <p class="text-lg text-slate-700 leading-relaxed mb-4">
+          Dès le lancement, nous avons fait le choix d'obtenir la certification <strong>RGE QualiPAC</strong>, une démarche exigeante qui témoigne de notre engagement qualité. Cette certification permet à nos clients de bénéficier des aides de l'État (MaPrimeRénov', CEE, TVA 5,5%) pour leurs travaux de rénovation énergétique.
+        </p>
+        <p class="text-lg text-slate-700 leading-relaxed mb-8">
+          Aujourd'hui, avec une note de <strong>4,9/5 sur Google</strong> basée sur 43 avis clients, CALOFRÉ s'est imposé comme un artisan de confiance à Colomiers. Notre philosophie reste la même : réactivité, transparence des tarifs et qualité de l'exécution.
+        </p>
+
+        <div class="flex justify-center mb-12">
+          <TrustBadges />
+        </div>
+
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900 mb-6">Nos valeurs</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="bg-slate-50 rounded-xl p-6">
+            <h3 class="text-lg font-semibold text-slate-900 mb-2">Réactivité</h3>
+            <p class="text-slate-600">Devis sous 24h, dépannage urgence dans la demi-journée. Nous savons qu'une fuite ou une panne n'attend pas.</p>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-6">
+            <h3 class="text-lg font-semibold text-slate-900 mb-2">Transparence</h3>
+            <p class="text-slate-600">Tarifs clairs, devis détaillés, pas de mauvaise surprise. Le prix annoncé est le prix facturé.</p>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-6">
+            <h3 class="text-lg font-semibold text-slate-900 mb-2">Qualité</h3>
+            <p class="text-slate-600">Matériaux premium, installation dans les règles de l'art, finitions soignées. Notre réputation en dépend.</p>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-6">
+            <h3 class="text-lg font-semibold text-slate-900 mb-2">Proximité</h3>
+            <p class="text-slate-600">Basés à Colomiers, nous connaissons le terrain. Un interlocuteur unique du début à la fin de votre projet.</p>
+          </div>
+        </div>
+
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900 mb-6">Informations légales</h2>
+        <div class="bg-slate-50 rounded-xl p-6 text-sm text-slate-600 space-y-1">
+          <p><strong>Dénomination :</strong> {company.name}</p>
+          <p><strong>Forme juridique :</strong> {company.legalForm} — {company.legalName}</p>
+          <p><strong>SIRET :</strong> {company.siret}</p>
+          <p><strong>RCS :</strong> {company.rcs}</p>
+          <p><strong>Président :</strong> {company.founder}</p>
+          <p><strong>Adresse :</strong> {company.address.full}</p>
+          <p><strong>Certification :</strong> {company.rge.name}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Envie de travailler avec un artisan de confiance ?" />
+</BaseLayout>

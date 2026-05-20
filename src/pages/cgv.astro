@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroVariant from '../components/HeroVariant.astro';
+import { company } from '../data/company';
+
+const seo = {
+  title: 'Conditions Générales de Vente — CALOFRÉ',
+  description: 'Conditions générales de vente de CALOFRÉ Plomberie Chauffage Climatisation, artisan RGE à Colomiers.',
+  noindex: true,
+};
+
+const breadcrumbs = [
+  { name: 'Accueil', url: 'https://calofre.fr/' },
+  { name: 'CGV', url: 'https://calofre.fr/cgv/' },
+];
+---
+
+<BaseLayout seo={seo}>
+  <HeroVariant title="Conditions Générales de Vente" breadcrumbs={breadcrumbs} />
+
+  <section class="py-16 md:py-24">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <div class="max-w-prose mx-auto prose prose-slate">
+        <h2>Article 1 — Objet</h2>
+        <p>Les présentes CGV régissent les relations contractuelles entre {company.name} (ci-après "le Prestataire") et tout client (ci-après "le Client") bénéficiant de ses prestations de plomberie, chauffage et climatisation.</p>
+
+        <h2>Article 2 — Devis et commande</h2>
+        <p>Tout intervention fait l'objet d'un devis préalable gratuit et sans engagement. Le devis détaille la nature des travaux, les matériaux utilisés, les délais et le prix total TTC. L'acceptation du devis par le Client vaut commande ferme.</p>
+
+        <h2>Article 3 — Prix et paiement</h2>
+        <p>Les prix sont exprimés en euros TTC. Le paiement est dû à la réception de la facture, sauf accord spécifique mentionné sur le devis. Les modes de paiement acceptés sont : virement bancaire, chèque, espèces (dans la limite légale).</p>
+
+        <h2>Article 4 — Exécution des prestations</h2>
+        <p>Le Prestataire s'engage à réaliser les travaux conformément aux règles de l'art et aux normes en vigueur. Les délais d'intervention sont donnés à titre indicatif et ne constituent pas un engagement contractuel ferme, sauf mention contraire.</p>
+
+        <h2>Article 5 — Garanties</h2>
+        <p>Les travaux réalisés par le Prestataire bénéficient de la garantie décennale et de la garantie de parfait achèvement d'un an. Les équipements installés bénéficient de la garantie fabricant.</p>
+
+        <h2>Article 6 — Droit de rétractation</h2>
+        <p>Conformément au Code de la consommation, le Client bénéficie d'un délai de rétractation de 14 jours à compter de la signature du devis, sauf pour les interventions d'urgence expressément demandées.</p>
+
+        <h2>Article 7 — Responsabilité</h2>
+        <p>Le Prestataire est assuré en responsabilité civile professionnelle et en garantie décennale. Les attestations d'assurance sont disponibles sur demande.</p>
+
+        <h2>Article 8 — Litiges</h2>
+        <p>En cas de litige, les parties s'efforceront de trouver une solution amiable. À défaut, le tribunal compétent sera celui du ressort du siège social du Prestataire, soit le Tribunal de Commerce de Toulouse.</p>
+
+        <p class="text-sm text-slate-500 mt-8">Dernière mise à jour : mai 2025</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

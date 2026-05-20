@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroVariant from '../components/HeroVariant.astro';
+import { company } from '../data/company';
+
+const seo = {
+  title: 'Mentions légales — CALOFRÉ',
+  description: 'Mentions légales du site calofre.fr. CALOFRE SAS, SIRET 912 399 631 00015, RCS Toulouse. Hébergeur : Vercel Inc.',
+  noindex: true,
+};
+
+const breadcrumbs = [
+  { name: 'Accueil', url: 'https://calofre.fr/' },
+  { name: 'Mentions légales', url: 'https://calofre.fr/mentions-legales/' },
+];
+---
+
+<BaseLayout seo={seo}>
+  <HeroVariant title="Mentions légales" breadcrumbs={breadcrumbs} />
+
+  <section class="py-16 md:py-24">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <div class="max-w-prose mx-auto prose prose-slate">
+        <h2>Éditeur du site</h2>
+        <p>
+          <strong>{company.name}</strong><br />
+          Forme juridique : {company.legalForm}<br />
+          SIREN : {company.siren}<br />
+          SIRET : {company.siret}<br />
+          RCS : {company.rcs}<br />
+          Capital social : {company.capital}<br />
+          TVA intracommunautaire : {company.tvaIntra}<br />
+          Code APE : {company.codeAPE}
+        </p>
+        <p>
+          Siège social : {company.address.full}<br />
+          Téléphone : <a href={company.phone.href}>{company.phone.display}</a><br />
+          Email : {company.email}
+        </p>
+        <p>
+          Directeur de la publication : {company.founder}, Président
+        </p>
+
+        <h2>Hébergeur</h2>
+        <p>
+          Vercel Inc.<br />
+          440 N Barranca Ave #4133<br />
+          Covina, CA 91723, États-Unis<br />
+          Site : vercel.com
+        </p>
+
+        <h2>Propriété intellectuelle</h2>
+        <p>
+          L'ensemble des contenus (textes, images, visuels, logo) présents sur le site calofre.fr sont la propriété exclusive de {company.legalName} ou de leurs auteurs respectifs. Toute reproduction, même partielle, est interdite sans autorisation préalable écrite.
+        </p>
+
+        <h2>Responsabilité civile professionnelle</h2>
+        <p>
+          N° {company.rcPro.number} — {company.rcPro.insurer}
+        </p>
+
+        <h2>Garantie décennale</h2>
+        <p>
+          N° {company.decennale.number} — {company.decennale.insurer}
+        </p>
+
+        <h2>Certification</h2>
+        <p>
+          {company.rge.name} — N° {company.rge.number}<br />
+          Délivrée par {company.rge.authority}
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+import MarqueLayout from '../../../layouts/MarqueLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const marques = await getCollection('marques');
+  return marques.map((marque) => ({
+    params: { slug: marque.id },
+    props: { marque },
+  }));
+}
+
+const { marque } = Astro.props;
+const { Content } = await render(marque);
+
+const breadcrumbs = [
+  { name: 'Accueil', url: 'https://calofre.fr/' },
+  { name: 'Climatisation', url: 'https://calofre.fr/climatisation/' },
+  { name: 'Marques', url: 'https://calofre.fr/climatisation/marques/' },
+  { name: marque.data.name, url: `https://calofre.fr/climatisation/marques/${marque.id}/` },
+];
+---
+
+<MarqueLayout
+  name={marque.data.name}
+  metaTitle={marque.data.metaTitle}
+  metaDescription={marque.data.metaDescription}
+  models={marque.data.models}
+  warranty={marque.data.warranty}
+  breadcrumbs={breadcrumbs}
+>
+  <Content />
+</MarqueLayout>

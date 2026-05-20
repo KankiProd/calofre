@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroVariant from '../components/HeroVariant.astro';
+import { company } from '../data/company';
+
+const seo = {
+  title: 'Politique de Confidentialité — CALOFRÉ',
+  description: 'Politique de confidentialité et protection des données personnelles de CALOFRÉ. Conformité RGPD.',
+  noindex: true,
+};
+
+const breadcrumbs = [
+  { name: 'Accueil', url: 'https://calofre.fr/' },
+  { name: 'Politique de confidentialité', url: 'https://calofre.fr/politique-confidentialite/' },
+];
+---
+
+<BaseLayout seo={seo}>
+  <HeroVariant title="Politique de confidentialité" breadcrumbs={breadcrumbs} />
+
+  <section class="py-16 md:py-24">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <div class="max-w-prose mx-auto prose prose-slate">
+        <h2>Responsable du traitement</h2>
+        <p>{company.name}, {company.address.full}. Contact : {company.email}.</p>
+
+        <h2>Données collectées</h2>
+        <p>Nous collectons uniquement les données nécessaires au traitement de votre demande de devis ou de contact :</p>
+        <ul>
+          <li>Nom et prénom</li>
+          <li>Adresse email</li>
+          <li>Numéro de téléphone</li>
+          <li>Code postal</li>
+          <li>Description de votre projet (message libre)</li>
+        </ul>
+
+        <h2>Finalité du traitement</h2>
+        <p>Vos données sont utilisées exclusivement pour :</p>
+        <ul>
+          <li>Répondre à votre demande de devis ou de contact</li>
+          <li>Vous recontacter par téléphone ou email pour le suivi de votre projet</li>
+          <li>Établir un devis personnalisé</li>
+        </ul>
+
+        <h2>Base légale</h2>
+        <p>Le traitement est fondé sur votre consentement (case RGPD cochée lors de l'envoi du formulaire) et sur l'exécution de mesures précontractuelles (devis).</p>
+
+        <h2>Durée de conservation</h2>
+        <p>Vos données sont conservées pendant 3 ans à compter de votre dernier contact, conformément aux recommandations de la CNIL.</p>
+
+        <h2>Destinataires</h2>
+        <p>Vos données ne sont transmises à aucun tiers. Elles sont uniquement accessibles à l'équipe de {company.name}. L'envoi des emails est assuré par Resend (sous-traitant technique, conforme RGPD).</p>
+
+        <h2>Vos droits</h2>
+        <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression, de limitation et de portabilité de vos données. Pour exercer ces droits, contactez-nous à : {company.email}.</p>
+
+        <h2>Cookies</h2>
+        <p>Ce site utilise Google Analytics (via Google Tag Manager) pour analyser le trafic. Un bandeau de consentement vous permet d'accepter ou de refuser ces cookies conformément à la réglementation française.</p>
+
+        <p class="text-sm text-slate-500 mt-8">Dernière mise à jour : mai 2025</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroVariant from '../../components/HeroVariant.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import FAQ from '../../components/FAQ.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
+import { getServiceSchema } from '../../lib/seo';
+
+const seo = {
+  title: 'Climatisation Réversible à Colomiers — RGE | CALOFRÉ',
+  description: 'Installation climatisation réversible à Colomiers et Toulouse : monosplit, multisplit, gainable. Marques Daikin, Mitsubishi, Atlantic. Certifié RGE. Devis gratuit.',
+};
+
+const breadcrumbs = [
+  { name: 'Accueil', url: 'https://calofre.fr/' },
+  { name: 'Climatisation', url: 'https://calofre.fr/climatisation/' },
+];
+
+const serviceSchema = getServiceSchema({
+  name: 'Climatisation réversible — Installation et entretien',
+  description: seo.description,
+  url: 'https://calofre.fr/climatisation/',
+});
+
+const services = [
+  {
+    title: 'Climatisation réversible',
+    description: 'Installation de climatisation réversible pour chauffer en hiver et rafraîchir en été. Solution économique et éligible aux aides.',
+    href: '/climatisation/climatisation-reversible/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/></svg>',
+  },
+  {
+    title: 'Monosplit',
+    description: 'Solution idéale pour climatiser une seule pièce. Installation rapide et économique. Grandes marques disponibles.',
+    href: '/climatisation/clim-monosplit/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="6" rx="1"/><path d="M17 14v7"/><path d="M7 14v7"/></svg>',
+  },
+  {
+    title: 'Multisplit',
+    description: 'Climatisez plusieurs pièces avec une seule unité extérieure. Jusqu\'à 5 unités intérieures connectées.',
+    href: '/climatisation/clim-multisplit/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/></svg>',
+  },
+  {
+    title: 'Gainable',
+    description: 'Climatisation intégrée au plafond, invisible et silencieuse. Solution haut de gamme pour maisons et locaux professionnels.',
+    href: '/climatisation/clim-gainable/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/></svg>',
+  },
+  {
+    title: 'Entretien & dépannage',
+    description: 'Entretien annuel obligatoire et dépannage clim : fuite de gaz, clim qui ne refroidit plus, bruits anormaux.',
+    href: '/climatisation/entretien-depannage-clim/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+  },
+  {
+    title: 'Professionnels',
+    description: 'Climatisation pour bureaux, restaurants, commerces et cabinets médicaux. Étude thermique et contrat d\'entretien.',
+    href: '/climatisation/professionnels/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></svg>',
+  },
+];
+
+const faqs = [
+  { question: 'Combien coûte l\'installation d\'une climatisation réversible ?', answer: 'Un monosplit coûte entre 1 500 et 3 000 € pose comprise. Un multisplit (2 à 4 pièces) entre 4 000 et 8 000 €. Un gainable entre 6 000 et 12 000 €. Les prix varient selon la puissance, la marque et la complexité de l\'installation.' },
+  { question: 'La climatisation réversible est-elle éligible aux aides ?', answer: 'Oui, la climatisation réversible (PAC air-air) est éligible aux CEE. Si vous optez pour une PAC air-eau, vous pouvez aussi bénéficier de MaPrimeRénov\'. Notre certification RGE QualiPAC est indispensable pour obtenir ces aides.' },
+  { question: 'Quelles marques de climatisation installez-vous ?', answer: 'Nous installons les meilleures marques du marché : Daikin, Mitsubishi Electric, Atlantic, LG, Toshiba, Panasonic et Airwell. Nous vous conseillons la marque la plus adaptée à vos besoins et votre budget.' },
+  { question: 'L\'entretien de la climatisation est-il obligatoire ?', answer: 'Oui, depuis le décret de juillet 2020, l\'entretien des climatisations contenant plus de 2 kg de fluide frigorigène est obligatoire tous les 2 ans. Nous proposons des contrats d\'entretien annuels pour garantir la performance et la durabilité de votre équipement.' },
+];
+---
+
+<BaseLayout seo={seo} schemas={[serviceSchema]}>
+  <HeroVariant title="Climatisation Réversible à Colomiers" subtitle="Installation monosplit, multisplit et gainable. Marques premium Daikin, Mitsubishi, Atlantic. Artisan certifié RGE QualiPAC." breadcrumbs={breadcrumbs} />
+
+  <section class="py-12 md:py-16">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <div class="flex justify-center mb-12">
+        <TrustBadges />
+      </div>
+
+      <div class="max-w-prose mx-auto mb-16">
+        <p class="text-lg text-slate-700 leading-relaxed">
+          CALOFRÉ installe, entretient et dépanne votre climatisation réversible à Colomiers et dans toute l'agglomération toulousaine. Nous travaillons avec les meilleures marques du marché (Daikin, Mitsubishi, Atlantic) pour vous garantir confort, performance et durabilité.
+        </p>
+        <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+          Certifié RGE QualiPAC, nous vous aidons à bénéficier des aides financières (CEE, MaPrimeRénov') pour réduire le coût de votre installation. Devis gratuit et transparent sous 24h.
+        </p>
+      </div>
+
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12">Nos solutions climatisation</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {services.map((s) => <ServiceCard {...s} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Marques section -->
+  <section class="py-16 md:py-24 bg-slate-50">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">Marques installées</h2>
+      <p class="text-lg text-slate-600 mb-10">Nous installons et entretenons les climatisations des plus grandes marques.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        {['Daikin', 'Mitsubishi', 'Atlantic', 'LG', 'Toshiba', 'Panasonic', 'Airwell'].map((m) => (
+          <a href={`/climatisation/marques/${m.toLowerCase()}/`} class="bg-white border border-slate-200 rounded-xl px-6 py-4 font-semibold text-slate-700 hover:border-primary-300 hover:text-primary-700 hover:shadow-card transition-all">
+            {m}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Besoin d'une climatisation ?" subtitle="Devis gratuit sous 24h. Installation par un artisan certifié RGE QualiPAC." />
+
+  <FAQ items={faqs} />
+</BaseLayout>

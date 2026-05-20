@@ -1,0 +1,33 @@
+---
+import CommuneLayout from '../../layouts/CommuneLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const communes = await getCollection('communes');
+  return communes.map((commune) => ({
+    params: { commune: commune.id },
+    props: { commune },
+  }));
+}
+
+const { commune } = Astro.props;
+const { Content } = await render(commune);
+
+const breadcrumbs = [
+  { name: 'Accueil', url: 'https://calofre.fr/' },
+  { name: 'Zones d\'intervention', url: 'https://calofre.fr/zones-intervention/' },
+  { name: commune.data.name, url: `https://calofre.fr/zones-intervention/${commune.id}/` },
+];
+---
+
+<CommuneLayout
+  name={commune.data.name}
+  metaTitle={commune.data.metaTitle}
+  metaDescription={commune.data.metaDescription}
+  postalCode={commune.data.postalCode}
+  responseTime={commune.data.responseTime}
+  highlights={commune.data.highlights}
+  breadcrumbs={breadcrumbs}
+>
+  <Content />
+</CommuneLayout>

@@ -1,0 +1,55 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import HeroVariant from '../components/HeroVariant.astro';
+import FAQ from '../components/FAQ.astro';
+import CTABanner from '../components/CTABanner.astro';
+import DevisCTA from '../components/DevisCTA.astro';
+import { getServiceSchema, getBreadcrumbSchema } from '../lib/seo';
+import { company } from '../data/company';
+
+interface Props {
+  title: string;
+  metaTitle: string;
+  metaDescription: string;
+  keyword: string;
+  breadcrumbs: { name: string; url: string }[];
+  faq?: { question: string; answer: string }[];
+  rgeRelated?: boolean;
+  emergency?: boolean;
+}
+
+const { title, metaTitle, metaDescription, keyword, breadcrumbs, faq = [], rgeRelated = false, emergency = false } = Astro.props;
+
+const seo = {
+  title: metaTitle,
+  description: metaDescription,
+};
+
+const serviceSchema = getServiceSchema({
+  name: title,
+  description: metaDescription,
+  url: new URL(Astro.url.pathname, Astro.site).href,
+});
+
+const schemas = [serviceSchema];
+---
+
+<BaseLayout seo={seo} schemas={schemas}>
+  <HeroVariant title={title} breadcrumbs={breadcrumbs} />
+
+  <article class="py-16 md:py-24">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <div class="max-w-prose mx-auto prose prose-slate prose-lg prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary-600 hover:prose-a:text-primary-700">
+        <slot />
+      </div>
+
+      <div class="max-w-prose mx-auto mt-12">
+        <DevisCTA />
+      </div>
+    </div>
+  </article>
+
+  {faq.length > 0 && <FAQ items={faq} />}
+
+  <CTABanner />
+</BaseLayout>

@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroVariant from '../components/HeroVariant.astro';
+import { company } from '../data/company';
+
+const seo = {
+  title: 'Contact — CALOFRÉ Plomberie Chauffage Climatisation',
+  description: 'Contactez CALOFRÉ à Colomiers : 07 88 13 38 89. Plombier chauffagiste climatiseur RGE. 14 Chemin de la Chasse, 31770 Colomiers. Devis gratuit sous 24h.',
+};
+
+const breadcrumbs = [
+  { name: 'Accueil', url: 'https://calofre.fr/' },
+  { name: 'Contact', url: 'https://calofre.fr/contact/' },
+];
+---
+
+<BaseLayout seo={seo}>
+  <HeroVariant title="Contactez-nous" subtitle="Une question, un projet ou une urgence ? Nous sommes à votre écoute." breadcrumbs={breadcrumbs} />
+
+  <section class="py-16 md:py-24">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Infos -->
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-6">Nos coordonnées</h2>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-slate-900">Adresse</h3>
+                <p class="text-slate-600">{company.address.full}</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-accent-50 rounded-xl flex items-center justify-center text-accent-600 shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-slate-900">Téléphone</h3>
+                <a href={company.phone.href} class="text-accent-600 hover:text-accent-700 font-semibold text-lg">{company.phone.display}</a>
+                <p class="text-sm text-slate-500">{company.openingHours.displayFR}</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-slate-900">Email</h3>
+                <p class="text-slate-600">{company.email}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 bg-trust-50 border border-trust-200 rounded-xl p-6">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-5 h-5 text-trust-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span class="font-semibold text-trust-700">Certifié RGE QualiPAC</span>
+            </div>
+            <p class="text-sm text-trust-700">SIRET {company.siret} — RCS {company.rcs}</p>
+          </div>
+        </div>
+
+        <!-- Formulaire contact simple -->
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900 mb-6">Envoyez-nous un message</h2>
+          <form class="space-y-4">
+            <div>
+              <label for="contact-name" class="block text-sm font-medium text-slate-700 mb-1.5">Nom *</label>
+              <input type="text" id="contact-name" required class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500" />
+            </div>
+            <div>
+              <label for="contact-email" class="block text-sm font-medium text-slate-700 mb-1.5">Email *</label>
+              <input type="email" id="contact-email" required class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500" />
+            </div>
+            <div>
+              <label for="contact-message" class="block text-sm font-medium text-slate-700 mb-1.5">Message *</label>
+              <textarea id="contact-message" rows="5" required class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-y"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary-700 hover:bg-primary-800 text-white font-semibold py-3 rounded-xl hover:shadow-lg active:scale-[0.98] transition-all">
+              Envoyer le message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

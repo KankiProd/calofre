@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroVariant from '../../components/HeroVariant.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTABanner from '../../components/CTABanner.astro';
+import FAQ from '../../components/FAQ.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
+import { getServiceSchema } from '../../lib/seo';
+
+const seo = {
+  title: 'Chauffagiste RGE à Colomiers — PAC & Chaudière | CALOFRÉ',
+  description: 'Chauffagiste certifié RGE QualiPAC à Colomiers. Installation pompe à chaleur, entretien et dépannage chaudière. Aides MaPrimeRénov\'. Devis gratuit.',
+};
+
+const breadcrumbs = [
+  { name: 'Accueil', url: 'https://calofre.fr/' },
+  { name: 'Chauffage', url: 'https://calofre.fr/chauffage/' },
+];
+
+const serviceSchema = getServiceSchema({
+  name: 'Chauffage — Installation, entretien et dépannage',
+  description: seo.description,
+  url: 'https://calofre.fr/chauffage/',
+});
+
+const services = [
+  {
+    title: 'Installation chaudière',
+    description: 'Installation de chaudière gaz à condensation et chaudière électrique. Mise en service et réglages inclus.',
+    href: '/chauffage/installation-chaudiere/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
+  },
+  {
+    title: 'Entretien chaudière',
+    description: 'Entretien annuel obligatoire de votre chaudière gaz ou fioul. Certificat de conformité fourni.',
+    href: '/chauffage/entretien-chaudiere/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+  },
+  {
+    title: 'Pompe à chaleur',
+    description: 'Installation PAC air-eau et air-air. Certification RGE pour bénéficier de MaPrimeRénov\' et CEE. Jusqu\'à 90% d\'aides.',
+    href: '/chauffage/pompe-a-chaleur/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/></svg>',
+  },
+  {
+    title: 'Dépannage chauffage',
+    description: 'Diagnostic et réparation de panne chauffage : chaudière qui ne démarre pas, radiateur froid, thermostat défaillant.',
+    href: '/chauffage/depannage-chauffage/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+  },
+];
+
+const faqs = [
+  { question: 'Combien coûte l\'installation d\'une pompe à chaleur ?', answer: 'Le coût d\'une PAC air-eau varie entre 8 000 et 15 000 € selon la puissance et la configuration. Grâce à notre certification RGE, vous pouvez bénéficier de MaPrimeRénov\' et des CEE, réduisant le reste à charge de 40 à 90%.' },
+  { question: 'L\'entretien de chaudière est-il obligatoire ?', answer: 'Oui, l\'entretien annuel de votre chaudière gaz est obligatoire (décret du 9 juin 2009). Nous fournissons le certificat d\'entretien attestant de la conformité de votre installation.' },
+  { question: 'Quelle est la différence entre PAC air-eau et air-air ?', answer: 'La PAC air-eau produit de l\'eau chaude pour alimenter un circuit de radiateurs ou un plancher chauffant. La PAC air-air diffuse directement de l\'air chaud (ou froid en mode réversible). Le choix dépend de votre installation existante.' },
+];
+---
+
+<BaseLayout seo={seo} schemas={[serviceSchema]}>
+  <HeroVariant title="Chauffagiste RGE à Colomiers et Toulouse" subtitle="Installation pompe à chaleur, entretien et dépannage chaudière. Certifié RGE QualiPAC pour vos aides financières." breadcrumbs={breadcrumbs} />
+
+  <section class="py-12 md:py-16">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <div class="flex justify-center mb-12">
+        <TrustBadges />
+      </div>
+
+      <div class="max-w-prose mx-auto mb-16">
+        <p class="text-lg text-slate-700 leading-relaxed">
+          CALOFRÉ est votre chauffagiste certifié RGE QualiPAC à Colomiers. Nous installons, entretenons et dépannons tous types de systèmes de chauffage : chaudières gaz à condensation, pompes à chaleur air-eau et air-air, radiateurs et planchers chauffants.
+        </p>
+        <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+          Notre certification RGE vous ouvre l'accès aux aides financières de l'État : MaPrimeRénov', Certificats d'Économies d'Énergie (CEE) et TVA réduite à 5,5%. Nous vous accompagnons dans le montage de vos dossiers d'aides.
+        </p>
+      </div>
+
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12">Nos prestations chauffage</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+        {services.map((s) => <ServiceCard {...s} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Un projet chauffage ou pompe à chaleur ?" subtitle="Profitez de notre certification RGE pour bénéficier des aides MaPrimeRénov'." />
+
+  <FAQ items={faqs} />
+</BaseLayout>

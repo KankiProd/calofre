@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroVariant from '../components/HeroVariant.astro';
+import CTABanner from '../components/CTABanner.astro';
+import { company } from '../data/company';
+
+const seo = {
+  title: 'Certifications RGE QualiPAC — CALOFRÉ Colomiers',
+  description: 'CALOFRÉ est certifié RGE QualiPAC. Cette certification vous garantit une installation conforme et l\'accès aux aides MaPrimeRénov\', CEE et TVA 5,5%.',
+};
+
+const breadcrumbs = [
+  { name: 'Accueil', url: 'https://calofre.fr/' },
+  { name: 'Certifications', url: 'https://calofre.fr/certifications/' },
+];
+---
+
+<BaseLayout seo={seo}>
+  <HeroVariant title="Nos certifications" subtitle="Gage de qualité et condition indispensable pour vos aides financières." breadcrumbs={breadcrumbs} />
+
+  <section class="py-16 md:py-24">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <div class="max-w-prose mx-auto">
+        <div class="bg-trust-50 border-2 border-trust-200 rounded-2xl p-8 mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-14 h-14 bg-trust-100 rounded-xl flex items-center justify-center">
+              <svg class="w-7 h-7 text-trust-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold text-trust-800">RGE QualiPAC</h2>
+              <p class="text-trust-600 font-medium">Certification active</p>
+            </div>
+          </div>
+          <p class="text-slate-700 leading-relaxed mb-4">
+            La certification <strong>RGE QualiPAC</strong> (Reconnu Garant de l'Environnement) est délivrée par <strong>Qualit'EnR</strong>, organisme mandaté par l'État. Elle atteste de la compétence de CALOFRÉ pour l'installation de pompes à chaleur et de climatisations réversibles.
+          </p>
+          <p class="text-slate-700 leading-relaxed">
+            Cette certification est <strong>indispensable</strong> pour que vos travaux soient éligibles aux aides financières de l'État : MaPrimeRénov', Certificats d'Économies d'Énergie (CEE) et TVA réduite à 5,5%.
+          </p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-slate-900 mb-6">Que garantit la certification RGE ?</h2>
+        <ul class="space-y-4 mb-12">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-trust-500 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <div>
+              <strong class="text-slate-900">Compétence technique vérifiée</strong>
+              <p class="text-slate-600">Formation continue des techniciens, contrôle des installations par des audits indépendants.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-trust-500 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <div>
+              <strong class="text-slate-900">Assurances à jour</strong>
+              <p class="text-slate-600">Responsabilité civile professionnelle et garantie décennale obligatoires et vérifiées.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-trust-500 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <div>
+              <strong class="text-slate-900">Accès aux aides de l'État</strong>
+              <p class="text-slate-600">MaPrimeRénov', CEE et TVA 5,5% ne sont accessibles qu'avec un artisan RGE.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-trust-500 mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <div>
+              <strong class="text-slate-900">Renouvellement périodique</strong>
+              <p class="text-slate-600">La certification est renouvelée tous les 4 ans après audit, garantissant un maintien de la qualité.</p>
+            </div>
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Nos assurances</h2>
+        <div class="bg-slate-50 rounded-xl p-6 text-sm text-slate-600 space-y-2">
+          <p><strong>Responsabilité civile professionnelle :</strong> N° {company.rcPro.number} — {company.rcPro.insurer}</p>
+          <p><strong>Garantie décennale :</strong> N° {company.decennale.number} — {company.decennale.insurer}</p>
+          <p class="text-xs text-slate-500 mt-2">Les attestations d'assurance sont disponibles sur demande.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Profitez de la certification RGE pour vos travaux" subtitle="Bénéficiez des aides MaPrimeRénov' et CEE grâce à notre certification." />
+</BaseLayout>

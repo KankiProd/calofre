@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { company } from '../data/company';
+
+const seo = {
+  title: 'Page non trouvée — CALOFRÉ',
+  description: 'Cette page n\'existe pas. Retrouvez tous nos services de plomberie, chauffage et climatisation à Colomiers.',
+  noindex: true,
+};
+---
+
+<BaseLayout seo={seo}>
+  <section class="py-24 md:py-32 text-center">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <p class="text-7xl font-bold text-primary-200 mb-4">404</p>
+      <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Page non trouvée</h1>
+      <p class="text-lg text-slate-600 mb-8 max-w-md mx-auto">
+        La page que vous cherchez n'existe pas ou a été déplacée.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/" class="inline-flex items-center justify-center gap-2 bg-primary-700 hover:bg-primary-800 text-white font-semibold px-6 py-3 rounded-xl transition-all">
+          Retour à l'accueil
+        </a>
+        <a href={company.phone.href} class="inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-semibold px-6 py-3 rounded-xl transition-all">
+          Appeler le {company.phone.display}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
