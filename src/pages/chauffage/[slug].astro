@@ -1,0 +1,34 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services-chauffage');
+  return services.map((service) => ({
+    params: { slug: service.id },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+
+const breadcrumbs = [
+  { name: 'Accueil', url: 'https://calofre.fr/' },
+  { name: 'Chauffage', url: 'https://calofre.fr/chauffage/' },
+  { name: service.data.title, url: `https://calofre.fr/chauffage/${service.id}/` },
+];
+---
+
+<ServiceLayout
+  title={service.data.title}
+  metaTitle={service.data.metaTitle}
+  metaDescription={service.data.metaDescription}
+  keyword={service.data.keyword}
+  breadcrumbs={breadcrumbs}
+  faq={service.data.faq}
+  rgeRelated={service.data.rgeRelated}
+  emergency={service.data.emergency}
+>
+  <Content />
+</ServiceLayout>
