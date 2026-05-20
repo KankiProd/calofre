@@ -23,7 +23,7 @@ const breadcrumbs = [
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
         <!-- Formulaire -->
         <div class="lg:col-span-3">
-          <form id="devis-form" action="/api/devis/" method="POST" class="space-y-6">
+          <form id="devis-form" action="/api/devis.php" method="POST" class="space-y-6">
             <!-- Honeypot -->
             <div class="hidden" aria-hidden="true">
               <label for="website">Ne pas remplir</label>
@@ -142,7 +142,7 @@ const breadcrumbs = [
       window.dataLayer.push({ event: 'devis_submitted', service: data.get('service') });
     }
 
-    fetch('/api/devis/', { method: 'POST', body: data })
+    fetch('/api/devis.php', { method: 'POST', body: data })
       .then(function(r) { return r.json(); })
       .then(function(d) {
         if (d.success) {
