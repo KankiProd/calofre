@@ -1,0 +1,50 @@
+---
+import { company } from '../data/company';
+
+interface Props {
+  variant?: 'default' | 'hero';
+}
+
+const { variant = 'default' } = Astro.props;
+
+const badges = [
+  {
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    label: 'RGE QualiPAC',
+    sublabel: 'Certification active',
+  },
+  {
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+    label: `${company.rating.value}/5 Google`,
+    sublabel: `${company.rating.count} avis clients`,
+  },
+  {
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>',
+    label: 'Depuis 2022',
+    sublabel: 'Artisan de confiance',
+  },
+  {
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+    label: 'Devis sous 24h',
+    sublabel: 'Réponse rapide',
+  },
+];
+
+const isHero = variant === 'hero';
+---
+
+<div class={`flex flex-wrap gap-3 ${isHero ? '' : 'justify-center'}`}>
+  {badges.map((badge) => (
+    <div class={`inline-flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm ${
+      isHero
+        ? 'bg-white/10 backdrop-blur-sm text-white border border-white/10'
+        : 'bg-slate-50 text-slate-700 border border-slate-200'
+    }`}>
+      <span class={isHero ? 'text-accent-400' : 'text-primary-600'} set:html={badge.icon} />
+      <div>
+        <span class="font-semibold block leading-tight">{badge.label}</span>
+        <span class={`text-xs ${isHero ? 'text-primary-200' : 'text-slate-500'}`}>{badge.sublabel}</span>
+      </div>
+    </div>
+  ))}
+</div>

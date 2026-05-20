@@ -1,0 +1,29 @@
+---
+import { communes } from '../data/communes';
+---
+
+<section class="py-16 md:py-24 bg-white">
+  <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Zones d'intervention</h2>
+      <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+        Basés à Colomiers, nous intervenons rapidement dans toute l'agglomération toulousaine.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+      {communes.map((commune) => (
+        <a
+          href={`/zones-intervention/${commune.slug}/`}
+          class="group flex flex-col items-center gap-2 bg-slate-50 hover:bg-primary-50 border border-slate-200 hover:border-primary-200 rounded-xl p-4 transition-all"
+        >
+          <svg class="w-5 h-5 text-primary-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span class="text-sm font-medium text-slate-700 group-hover:text-primary-700 text-center">{commune.name}</span>
+          {commune.distanceFromColomiers === 0
+            ? <span class="text-xs text-trust-600 font-medium">Siège</span>
+            : <span class="text-xs text-slate-500">{commune.responseTime}</span>
+          }
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

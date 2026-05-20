@@ -1,0 +1,58 @@
+---
+import ServiceCard from './ServiceCard.astro';
+
+const services = [
+  {
+    title: 'Plomberie',
+    description: 'Dépannage urgence 7j/7, fuite d\'eau, débouchage, rénovation salle de bain et installation sanitaire à Colomiers et alentours.',
+    href: '/plomberie/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>',
+  },
+  {
+    title: 'Chauffage',
+    description: 'Installation, entretien et dépannage de chaudières gaz, électriques et pompes à chaleur. Artisan certifié RGE QualiPAC.',
+    href: '/chauffage/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
+  },
+  {
+    title: 'Climatisation',
+    description: 'Installation clim réversible monosplit, multisplit et gainable. Entretien annuel et dépannage. Marques Daikin, Mitsubishi, Atlantic.',
+    href: '/climatisation/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11h1a3 3 0 0 1 0 6h-1"/><path d="M9 12v6"/><path d="M13 12v6"/><path d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.72.5-2.5.5a2.5 2.5 0 0 1 0-5c.78 0 1.57.5 2.5.5S9.44 2 11 2s2 1.5 3 1.5 1.72-.5 2.5-.5a2.5 2.5 0 0 1 0 5c-.78 0-1.5-.5-2.5-.5Z"/><path d="M3 15.5h.5a2.5 2.5 0 0 1 0 5H3"/></svg>',
+  },
+  {
+    title: 'Pompe à chaleur',
+    description: 'Installation PAC air-eau et air-air. Certification RGE pour bénéficier de MaPrimeRénov\' et des CEE. Devis gratuit sous 24h.',
+    href: '/chauffage/pompe-a-chaleur/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/></svg>',
+  },
+  {
+    title: 'Aides financières',
+    description: 'Grâce à notre certification RGE, profitez de MaPrimeRénov\', des CEE et de la TVA à 5,5% sur vos travaux de rénovation énergétique.',
+    href: '/climatisation/aides-financieres/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>',
+  },
+  {
+    title: 'Professionnels',
+    description: 'Solutions CVC sur mesure pour bureaux, restaurants, commerces et cabinets médicaux. Contrats d\'entretien annuel disponibles.',
+    href: '/climatisation/professionnels/',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>',
+  },
+];
+---
+
+<section class="py-16 md:py-24 lg:py-32 bg-white">
+  <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Nos services</h2>
+      <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+        Plomberie, chauffage et climatisation : un interlocuteur unique pour tous vos besoins à Colomiers et dans l'agglomération toulousaine.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {services.map((service) => (
+        <ServiceCard {...service} />
+      ))}
+    </div>
+  </div>
+</section>

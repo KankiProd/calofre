@@ -1,0 +1,33 @@
+---
+import { getFAQSchema } from '../lib/seo';
+
+interface Props {
+  items: { question: string; answer: string }[];
+  title?: string;
+}
+
+const { items, title = 'Questions fréquentes' } = Astro.props;
+const schema = getFAQSchema(items);
+---
+
+{items.length > 0 && (
+  <section class="py-16 md:py-24">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-center mb-12">{title}</h2>
+      <div class="max-w-3xl mx-auto space-y-3">
+        {items.map((item) => (
+          <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer font-medium text-slate-900 hover:bg-slate-50 transition-colors list-none [&::-webkit-details-marker]:hidden">
+              <span>{item.question}</span>
+              <svg class="w-5 h-5 text-slate-400 shrink-0 transform group-open:rotate-180 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="px-6 pb-4 text-slate-600 leading-relaxed">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </section>
+)}

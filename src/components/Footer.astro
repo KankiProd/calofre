@@ -1,0 +1,93 @@
+---
+import { company } from '../data/company';
+import { communes } from '../data/communes';
+---
+
+<footer class="bg-slate-900 text-slate-300">
+  <!-- Main footer -->
+  <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8 py-16 md:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+      <!-- Col 1: About + NAP -->
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
+            <span class="text-white font-bold text-base leading-none">C</span>
+          </div>
+          <span class="text-lg font-bold text-white tracking-tight">CALOFRÉ</span>
+        </div>
+        <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+          Artisan plombier-chauffagiste certifié RGE QualiPAC. Installation, entretien et dépannage à Colomiers et dans toute l'agglomération toulousaine.
+        </p>
+        <address class="not-italic text-sm space-y-2">
+          <p class="flex items-start gap-2">
+            <svg class="w-4 h-4 mt-0.5 shrink-0 text-primary-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>{company.address.full}</span>
+          </p>
+          <p>
+            <a href={company.phone.href} class="flex items-center gap-2 hover:text-accent-400 transition-colors">
+              <svg class="w-4 h-4 shrink-0 text-primary-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              {company.phone.display}
+            </a>
+          </p>
+        </address>
+        <div class="mt-4 flex items-center gap-3">
+          <span class="inline-flex items-center gap-1.5 bg-trust-700/20 text-trust-500 px-2.5 py-1 rounded-full text-xs font-semibold">
+            <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            RGE QualiPAC
+          </span>
+          <span class="inline-flex items-center gap-1 text-amber-400 text-xs font-semibold">
+            <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            {company.rating.value}/5
+          </span>
+        </div>
+      </div>
+
+      <!-- Col 2: Services -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Services</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="/plomberie/" class="hover:text-white transition-colors">Plomberie</a></li>
+          <li><a href="/plomberie/depannage-urgence/" class="hover:text-white transition-colors">Dépannage urgence</a></li>
+          <li><a href="/chauffage/" class="hover:text-white transition-colors">Chauffage</a></li>
+          <li><a href="/chauffage/pompe-a-chaleur/" class="hover:text-white transition-colors">Pompe à chaleur</a></li>
+          <li><a href="/climatisation/" class="hover:text-white transition-colors">Climatisation</a></li>
+          <li><a href="/climatisation/marques/" class="hover:text-white transition-colors">Marques climatisation</a></li>
+          <li><a href="/climatisation/aides-financieres/" class="hover:text-white transition-colors">Aides financières</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Zones -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Zones d'intervention</h3>
+        <ul class="space-y-2.5 text-sm">
+          {communes.map((c) => (
+            <li><a href={`/zones-intervention/${c.slug}/`} class="hover:text-white transition-colors">{c.name}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Col 4: Liens -->
+      <div>
+        <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Informations</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="/a-propos/" class="hover:text-white transition-colors">À propos</a></li>
+          <li><a href="/certifications/" class="hover:text-white transition-colors">Certifications RGE</a></li>
+          <li><a href="/devis-gratuit/" class="hover:text-white transition-colors">Devis gratuit</a></li>
+          <li><a href="/contact/" class="hover:text-white transition-colors">Contact</a></li>
+          <li><a href="/blog/" class="hover:text-white transition-colors">Blog & conseils</a></li>
+          <li><a href="/mentions-legales/" class="hover:text-white transition-colors">Mentions légales</a></li>
+          <li><a href="/cgv/" class="hover:text-white transition-colors">CGV</a></li>
+          <li><a href="/politique-confidentialite/" class="hover:text-white transition-colors">Politique de confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-slate-800">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+      <p>&copy; {new Date().getFullYear()} {company.name}. Tous droits réservés.</p>
+      <p>SIRET {company.siret} — {company.rge.name} — RCS {company.rcs}</p>
+    </div>
+  </div>
+</footer>

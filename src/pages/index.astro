@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServicesGrid from '../components/ServicesGrid.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import CTABanner from '../components/CTABanner.astro';
+import ZonesIntervention from '../components/ZonesIntervention.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import FAQ from '../components/FAQ.astro';
+
+const seo = {
+  title: 'CALOFRÉ — Plombier Chauffagiste RGE à Colomiers',
+  description: 'Plombier chauffagiste climatiseur RGE QualiPAC à Colomiers. Installation, entretien et dépannage plomberie, chauffage, PAC et climatisation. 4,9★ Google. Devis gratuit.',
+};
+
+const faqs = [
+  {
+    question: 'Quels sont vos délais d\'intervention en urgence ?',
+    answer: 'Pour les urgences plomberie (fuite, dégât des eaux), nous intervenons dans un délai de 2 à 4 heures sur Colomiers et les communes limitrophes. Pour les communes plus éloignées, comptez un délai de 4 à 6 heures.',
+  },
+  {
+    question: 'Quelles aides financières puis-je obtenir grâce à votre certification RGE ?',
+    answer: 'Notre certification RGE QualiPAC vous permet de bénéficier de MaPrimeRénov\', des Certificats d\'Économies d\'Énergie (CEE) et de la TVA réduite à 5,5% sur vos travaux de rénovation énergétique (pompe à chaleur, climatisation réversible).',
+  },
+  {
+    question: 'Intervenez-vous sur Toulouse ?',
+    answer: 'Oui, nous intervenons sur Toulouse et dans toute l\'agglomération toulousaine : Colomiers, Tournefeuille, Blagnac, Plaisance-du-Touch, Pibrac, Cornebarrieu, Léguevin, Cugnaux, La Salvetat-Saint-Gilles.',
+  },
+  {
+    question: 'Proposez-vous des contrats d\'entretien ?',
+    answer: 'Oui, nous proposons des contrats d\'entretien annuel pour les chaudières, pompes à chaleur et climatisations. L\'entretien régulier est d\'ailleurs obligatoire et garantit la performance et la longévité de vos équipements.',
+  },
+  {
+    question: 'Le devis est-il gratuit ?',
+    answer: 'Oui, le devis est toujours gratuit et sans engagement. Nous nous engageons à vous répondre sous 24h et à vous proposer un tarif transparent, détaillé et sans surprise.',
+  },
+];
+---
+
+<BaseLayout seo={seo}>
+  <Hero
+    title="Plombier-Chauffagiste <span class='text-accent-400'>RGE</span> à Colomiers et Toulouse"
+    subtitle="Installation, entretien et dépannage en plomberie, chauffage et climatisation. Certifié RGE QualiPAC pour vos aides MaPrimeRénov'. Devis gratuit sous 24h."
+  />
+
+  <ServicesGrid />
+
+  <ProcessSteps />
+
+  <CTABanner />
+
+  <ZonesIntervention />
+
+  <!-- Section confiance -->
+  <section class="py-16 md:py-24 bg-slate-50">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">Pourquoi choisir CALOFRÉ ?</h2>
+        <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+          Un artisan local certifié, réactif et transparent sur ses tarifs.
+        </p>
+      </div>
+      <div class="flex justify-center">
+        <TrustBadges />
+      </div>
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="text-center">
+          <div class="w-14 h-14 bg-trust-100 rounded-2xl flex items-center justify-center text-trust-600 mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Certifié RGE QualiPAC</h3>
+          <p class="text-sm text-slate-600">Qualification reconnue par l'État pour les installations de pompes à chaleur et climatisation réversible.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-accent-100 rounded-2xl flex items-center justify-center text-accent-600 mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Aides financières</h3>
+          <p class="text-sm text-slate-600">MaPrimeRénov', CEE et TVA 5,5% accessibles grâce à notre certification RGE. Jusqu'à 90% de prise en charge.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 mx-auto mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">Proximité locale</h3>
+          <p class="text-sm text-slate-600">Basés à Colomiers, nous intervenons en moins de 30 minutes sur toute l'agglomération toulousaine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQ items={faqs} />
+
+  <CTABanner
+    title="Prêt à démarrer votre projet ?"
+    subtitle="Contactez Fouad et son équipe pour un devis gratuit et personnalisé."
+  />
+</BaseLayout>
